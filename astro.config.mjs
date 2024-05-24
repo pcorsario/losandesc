@@ -3,7 +3,6 @@ import mdx from '@astrojs/mdx'
 import tailwind from '@astrojs/tailwind'
 import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
-import partytown from '@astrojs/partytown'
 import { SITE } from './src/config.ts'
 import { remarkReadingTime } from './src/support/time.ts'
 
@@ -15,11 +14,10 @@ export default defineConfig({
         sitemap(),
         tailwind(),
         react(),
-        partytown(),
         (await import('@playform/compress')).default({
             CSS: true,
             HTML: true,
-            Image: false, // too slow when deploy to production,
+            Image: false,
             JavaScript: true,
             SVG: true,
             Logger: 2,
