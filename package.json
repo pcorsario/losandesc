@@ -1,7 +1,22 @@
 {
-  "name": "faithful-filament",
+  "name": "godruoyi.com",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "homepage": "https://godruoyi.com",
+  "bugs": {
+    "url": "https://github.com/godruoyi/gblog/issues",
+    "email": "syhily@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/godruoyi/gblog.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Godruoyi",
+    "email": "godruoyi@gmail.com",
+    "url": "https://godruoyi.com"
+  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -21,6 +36,7 @@
     "@giscus/react": "^3.0.0",
     "@playform/compress": "^0.0.4",
     "@types/react": "^18.3.2",
+    "@types/unist": "^3.0.2",
     "astro": "^4.9.0",
     "astro-compressor": "^0.4.1",
     "mdast-util-to-string": "^4.0.0",
@@ -34,15 +50,17 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.18.0",
+    "@eslint-react/eslint-plugin": "^1.5.16",
     "@tailwindcss/typography": "^0.5.13",
     "eslint": "^8.57.0",
-    "eslint-plugin-astro": "^0.31.4",
+    "eslint-plugin-astro": "^1.2.0",
     "eslint-plugin-format": "^0.1.0",
     "eslint-plugin-react": "^7.34.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
     "mysql2": "^3.9.7",
     "preline": "^2.1.0",
-    "timeago.js": "^4.0.2"
+    "timeago.js": "^4.0.2",
+    "unist-util-visit": "^5.0.0"
   }
 }

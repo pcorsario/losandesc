@@ -144,7 +144,7 @@ VPC
 
 举个例子，在上面的网络结构中，如果 Lambda 想要连接 GitHub，那他的流量流向为：
 
-```flow
+```
 Lambda Connect GitHub -> Route Table1 -> 0.0.0.0/0    --->    NAT
                                                                |
                                                                |
