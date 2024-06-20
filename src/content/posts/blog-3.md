@@ -19,7 +19,7 @@ selected: true
 
 你能想象两年内它完全是运行在下面这样的脚本中吗？我甚至都没有为他配置 [Restart Policies](https://docs.docker.com/config/containers/start-containers-automatically/) 或者 Supervisor，相当于只要程序一 Panic，网站就挂了。
 
-```sheel
+```shell
 docker run --name gblog -p 9900:9900 -d ${imageName}
 ```
 
@@ -31,6 +31,6 @@ docker run --name gblog -p 9900:9900 -d ${imageName}
 
 按照约定，放几张新版本博客的截图。
 
-![Godruoyi Blog](@images/posts/blog-3/home.png)
-![Godruoyi Categories](@images/posts/blog-3/categories.png)
-![Godruoyi Timeline](@images/posts/blog-3/timeline.png)
+![Godruoyi Blog](/images/posts/blog-3/home.png)
+![Godruoyi Categories](/images/posts/blog-3/categories.png)
+![Godruoyi Timeline](/images/posts/blog-3/timeline.png)

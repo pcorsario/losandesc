@@ -142,7 +142,7 @@ add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsaf
 
 3、接下来在 Nginx 主配置文件中开启 `SSL` 支持
 
-```conf
+```
 # /etc/nginx/nginx.conf
 
 http {

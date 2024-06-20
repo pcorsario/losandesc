@@ -1,0 +1,38 @@
+---
+import { Image } from 'astro:assets'
+import { ImageMetadata } from 'astro'
+import { blurStyle } from '../support/image'
+
+interface Props {
+    src: ImageMetadata
+    alt: string
+    className?: string
+    draggable?: string
+    format?: string
+    loading?: string
+}
+
+const {
+    src,
+    alt,
+    className,
+    format = 'avif',
+    draggable = 'false',
+    loading = 'lazy',
+} = Astro.props
+
+const blurCSS = await blurStyle(src.fsPath) // todo: refactor me
+
+---
+
+<Image
+    class={className}
+    src={src}
+    alt={alt}
+    draggable={draggable}
+    format={format}
+    loading={loading}
+    style={blurCSS}
+/>
+
+

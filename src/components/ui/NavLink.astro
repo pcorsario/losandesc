@@ -17,28 +17,24 @@ interface Props {
 </a>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    let url = window.location.pathname;
-    let urlSegments = url.split("/");
-    let navId;
+ document.addEventListener('DOMContentLoaded', () => {
+     const url = window.location.pathname.replace('//', '')
+     let navId = 'home'
 
-    if (url === "/") {
-      navId = "home";
-    } else {
-      navId = url.replace("/", "");
-    }
+     if (url !== '/') {
+         navId = url.replace('/', '')
+     }
 
-    let nav = document.getElementById(navId);
-
-    if (nav) {
-      nav.classList.remove(
-        "text-neutral-600",
-        "dark:text-neutral-400",
-        "hover:text-neutral-500",
-        "dark:hover:text-neutral-500"
-      );
-      nav.classList.add("text-orange-400", "dark:text-orange-300");
-      nav.setAttribute("aria-current", "page");
-    }
-  });
+     const nav = document.getElementById(navId)
+     if (nav) {
+         nav.classList.remove(
+             'text-neutral-600',
+             'dark:text-neutral-400',
+             'hover:text-neutral-500',
+             'dark:hover:text-neutral-500',
+         )
+         nav.classList.add('text-orange-400', 'dark:text-orange-300')
+         nav.setAttribute('aria-current', 'page')
+     }
+ })
 </script>

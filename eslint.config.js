@@ -10,6 +10,7 @@ export default antfu({
     typescript: true,
     vue: false,
     astro: true,
+    markdown: false,
 
     rules: {
         'no-console': 'off',
