@@ -31,6 +31,6 @@ docker run --name gblog -p 9900:9900 -d ${imageName}
 
 按照约定，放几张新版本博客的截图。
 
-![Godruoyi Blog](/images/posts/blog-3/home.png)
-![Godruoyi Categories](/images/posts/blog-3/categories.png)
-![Godruoyi Timeline](/images/posts/blog-3/timeline.png)
+![Godruoyi Blog](@images/posts/blog-3/home.png)
+![Godruoyi Categories](@images/posts/blog-3/categories.png)
+![Godruoyi Timeline](@images/posts/blog-3/timeline.png)
