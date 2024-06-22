@@ -2,9 +2,9 @@
 import { getCollection } from 'astro:content'
 import type { CollectionEntry } from 'astro:content'
 import BaseLayout from '@layouts/BaseLayout.astro'
-import MainSection from '@components/blocks/MainSection.astro'
 import BlogRecentCard from '@components/blog/BlogRecentCard.astro'
 import BlogSelectedArticle from '@components/blog/BlogSelectedArticle.astro'
+import MainSection from '@components/sections/MainSection.astro'
 import { SITE } from '../../config'
 
 const posts: CollectionEntry<'posts'>[] = (await getCollection('posts')).sort(
