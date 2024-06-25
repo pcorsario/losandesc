@@ -81,104 +81,137 @@ import Theme from './logos/Theme.astro';
     </nav>
 </header>
 <script is:inline>
-    const HSThemeAppearance = {
-        init() {
-            const defaultTheme = "default";
-            let theme = localStorage.getItem("hs_theme") || defaultTheme;
+const ViewTransitionStyleCSS = `::view-transition-group(root) {
+    animation-timing-function: var(--expo-out);
+}
+::view-transition-new(root) {
+    mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><defs><filter id="blur"><feGaussianBlur stdDeviation="2"/></filter></defs><circle cx="0" cy="0" r="18" fill="white" filter="url(%23blur)"/></svg>') top left / 0 no-repeat;
+    mask-origin: content-box;
+    animation: scale 1s;
+    transform-origin: top left;
+}
+::view-transition-old(root),.dark::view-transition-old(root) {
+    animation: scale 1s;
+    transform-origin: top left;
+    z-index: -1;
+}
+@keyframes scale {
+    to {
+        mask-size: 350vmax;
+    }
+}`
+const viewTransitionStyleElement = document.createElement('style')
+document.head.appendChild(viewTransitionStyleElement)
+const injectViewTransitionStyleCSS = () => viewTransitionStyleElement.textContent = ViewTransitionStyleCSS
 
-            if (document.querySelector("html").classList.contains("dark")) {
-                return;
-            }
+const HSThemeAppearance = {
+    init() {
+        const defaultTheme = 'default'
+        const theme = localStorage.getItem('hs_theme') || defaultTheme
 
-            this.setAppearance(theme);
-        },
-
-        _resetStylesOnLoad() {
-            const $resetStyles = document.createElement("style");
-            $resetStyles.innerText = `*{transition: unset !important;}`;
-            $resetStyles.setAttribute("data-hs-appearance-onload-styles", "");
-            document.head.appendChild($resetStyles);
-            return $resetStyles;
-        },
-
-        setAppearance(theme, saveInStore = true, dispatchEvent = true) {
-            const $resetStylesEl = this._resetStylesOnLoad();
-
-            if (saveInStore) {
-                localStorage.setItem("hs_theme", theme);
-            }
-
-            if (theme === "auto") {
-                theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "default";
-            }
-
-            document.querySelector("html").classList.remove("dark");
-            document.querySelector("html").classList.remove("default");
-            document.querySelector("html").classList.remove("auto");
-
-            document.querySelector("html").classList.add(this.getOriginalAppearance());
-
-            setTimeout(() => $resetStylesEl.remove());
-
-            if (dispatchEvent) {
-                window.dispatchEvent(new CustomEvent("on-hs-appearance-change", { detail: theme }));
-            }
-        },
-
-        getAppearance() {
-            let theme = this.getOriginalAppearance();
-            if (theme === "auto") {
-                theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "default";
-            }
-
-            return theme;
-        },
-
-        getOriginalAppearance() {
-            const defaultTheme = "default";
-            return localStorage.getItem("hs_theme") || defaultTheme;
-        },
-    };
-
-    HSThemeAppearance.init();
-
-    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
-        if (HSThemeAppearance.getOriginalAppearance() === "auto") {
-            HSThemeAppearance.setAppearance("auto", false);
+        if (document.querySelector('html').classList.contains('dark')) {
+            return
         }
-    });
 
-    window.addEventListener("load", () => {
-        const $clickableThemes = document.querySelectorAll(
-            "[data-hs-theme-click-value]",
-        );
-        const $switchableThemes = document.querySelectorAll(
-            "[data-hs-theme-switch]",
-        );
+        this.setAppearance(theme)
+    },
 
-        $clickableThemes.forEach(($item) => {
-            $item.addEventListener("click", () =>
-                HSThemeAppearance.setAppearance(
-                    $item.getAttribute("data-hs-theme-click-value"),
-                    true,
-                    $item,
-                ),
-            );
-        });
+    _resetStylesOnLoad() {
+        const $resetStyles = document.createElement('style')
+        $resetStyles.textContent = `*{transition: unset !important;}`
+        $resetStyles.setAttribute('data-hs-appearance-onload-styles', '')
+        document.head.appendChild($resetStyles)
+        return $resetStyles
+    },
 
+    setAppearance(theme, saveInStore = true, dispatchEvent = true) {
+        const $resetStylesEl = this._resetStylesOnLoad()
+
+        if (saveInStore) {
+            localStorage.setItem('hs_theme', theme)
+        }
+
+        if (theme === 'auto') {
+            theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default'
+        }
+
+        document.querySelector('html').classList.remove('dark')
+        document.querySelector('html').classList.remove('default')
+        document.querySelector('html').classList.remove('auto')
+
+        document.querySelector('html').classList.add(this.getOriginalAppearance())
+
+        setTimeout(() => $resetStylesEl.remove())
+
+        if (dispatchEvent) {
+            window.dispatchEvent(new CustomEvent('on-hs-appearance-change', { detail: theme }))
+        }
+    },
+
+    getAppearance() {
+        let theme = this.getOriginalAppearance()
+        if (theme === 'auto') {
+            theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default'
+        }
+
+        return theme
+    },
+
+    getOriginalAppearance() {
+        const defaultTheme = 'default'
+        return localStorage.getItem('hs_theme') || defaultTheme
+    },
+}
+
+HSThemeAppearance.init()
+
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+    if (HSThemeAppearance.getOriginalAppearance() === 'auto') {
+        HSThemeAppearance.setAppearance('auto', false)
+    }
+})
+
+window.addEventListener('load', () => {
+    const $clickableThemes = document.querySelectorAll(
+        '[data-hs-theme-click-value]',
+    )
+    const $switchableThemes = document.querySelectorAll(
+        '[data-hs-theme-switch]',
+    )
+
+    $clickableThemes.forEach(($item) => {
+        $item.addEventListener('click', () => {
+            const switchThem = () => HSThemeAppearance.setAppearance(
+                $item.getAttribute('data-hs-theme-click-value'),
+                true,
+                true,
+            )
+
+            if (document.startViewTransition) {
+                document.startViewTransition(() => {
+                    injectViewTransitionStyleCSS()
+                    switchThem()
+                })
+            }
+            else {
+                switchThem()
+            }
+        })
+    })
+
+    $switchableThemes.forEach(($item) => {
+        $item.addEventListener('change', (e) => {
+            HSThemeAppearance.setAppearance(e.target.checked ? 'dark' : 'default')
+        })
+
+        $item.checked = HSThemeAppearance.getAppearance() === 'dark'
+    })
+
+    window.addEventListener('on-hs-appearance-change', (e) => {
         $switchableThemes.forEach(($item) => {
-            $item.addEventListener("change", (e) => {
-                HSThemeAppearance.setAppearance(e.target.checked ? "dark" : "default");
-            });
-
-            $item.checked = HSThemeAppearance.getAppearance() === "dark";
-        });
-
-        window.addEventListener("on-hs-appearance-change", (e) => {
-            $switchableThemes.forEach(($item) => {
-                $item.checked = e.detail === "dark";
-            });
-        });
-  });
+            $item.checked = e.detail === 'dark'
+        })
+    })
+})
 </script>
 <script is:inline src="/vendor/preline/collapse2.1.0.min.js"></script>
