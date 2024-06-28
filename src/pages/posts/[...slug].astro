@@ -2,7 +2,7 @@
 import { type CollectionEntry, getCollection } from 'astro:content'
 import BaseLayout from '@layouts/BaseLayout.astro'
 import BlogComments from '@components/blog/BlogComments'
-import Image from '@components/Image.astro'
+import { Image } from 'astro:assets'
 import { timeago } from '../../support/time'
 import { SITE } from '../../config'
 
@@ -58,16 +58,10 @@ const ogImage = post.data.ogImage
                     class="w-full object-cover rounded-tl-sm rounded-tr-sm"
                     src={post.data.banner}
                     alt={post.data.title}
+                    draggable="false"
+                    format="avif"
+                    loading="lazy"
                 />
-                <!--<Image-->
-                <!--    class="w-full object-cover rounded-tl-sm rounded-tr-sm"-->
-                <!--    src={post.data.banner}-->
-                <!--    alt={post.data.title}-->
-                <!--    draggable="false"-->
-                <!--    format="avif"-->
-                <!--    loading="lazy"-->
-                <!--    style={xcss}-->
-                <!--/>-->
             </div>
             <div class="sm:dark:bg-neutral-900/30 sm:bg-neutral-100 px-0 sm:px-6 md:px-10 lg:px-14 py-6">
                 <div class="mb-10">
