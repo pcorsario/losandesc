@@ -1,4 +1,4 @@
-import { defineConfig, passthroughImageService } from 'astro/config'
+import { defineConfig } from 'astro/config'
 import mdx from '@astrojs/mdx'
 import tailwind from '@astrojs/tailwind'
 import react from '@astrojs/react'
@@ -12,7 +12,7 @@ export default defineConfig({
     image: {
         // If you prefer not to optimize images during the BUILD,
         // you can open this comment, It will greatly reduce the build time.
-        service: passthroughImageService(),
+        // service: passthroughImageService(),
     },
     integrations: [
         mdx(),
