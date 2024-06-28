@@ -33,7 +33,11 @@ if (!ogImage) {
 const faviconSvg = await getImage({ src: faviconSvgSrc, format: 'svg' })
 const appleTouchIcon = await getImage({ src: faviconSrc, width: 180, height: 180, format: 'png' })
 const socialImageRes = await getImage({ src: ogImage, width: 1200, height: 600 })
-const socialImage = Astro.url.origin + socialImageRes.src
+
+let socialImage = socialImageRes.src
+if (!socialImage.startsWith('http')) {
+    socialImage = Astro.url.origin + socialImageRes.src
+}
 ---
 
 <!-- Inject structured data https://developers.google.com/search/docs/advanced/structured-data/intro-structured-data -->
