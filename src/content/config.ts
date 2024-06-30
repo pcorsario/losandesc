@@ -1,18 +1,18 @@
 import { defineCollection, z } from 'astro:content'
+import { imager } from '../support/image.ts'
 
 const posts = defineCollection({
-    schema: ({ image }) => z.object({
+    type: 'content',
+    schema: () => z.object({
         title: z.string(),
         description: z.string(),
-        banner: image(),
+        banner: imager(),
 
         // This banner will be shown in blog lists(/posts) if provided.
-        banner2: image().optional(),
+        banner2: imager().optional(),
 
         // The article OG cover, if not provided, use summary card, otherwise summary_large_image
-        ogImage: image().refine(img => img.width >= 1200 && img.height >= 630, {
-            message: 'OpenGraph image must be at least 1200 X 630 pixels!',
-        }).or(z.string()).optional(),
+        ogImage: imager().optional(),
 
         category: z.string(),
         pubDate: z.coerce.date(),
