@@ -6,7 +6,7 @@ category: "books"
 banner: "@images/banners/nBQIxDPW3EPrFPwY8QJiMBtnMW6hgGE1bguvykwf.jpeg"
 tags: ["books"]
 oldViewCount: 3506
-oldKeywords: ["null"]
+oldKeywords: []
 ---
 
 记录我目前正在看的或已经看完的部分书籍(纸质)，并记录 ~~当时~~ （现在觉得当时）可能存在的感想。

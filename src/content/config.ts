@@ -1,6 +1,7 @@
 import { defineCollection, z } from 'astro:content'
 
 const posts = defineCollection({
+    type: 'content',
     schema: ({ image }) => z.object({
         title: z.string(),
         description: z.string(),
@@ -10,9 +11,7 @@ const posts = defineCollection({
         banner2: image().optional(),
 
         // The article OG cover, if not provided, use summary card, otherwise summary_large_image
-        ogImage: image().refine(img => img.width >= 1200 && img.height >= 630, {
-            message: 'OpenGraph image must be at least 1200 X 630 pixels!',
-        }).or(z.string()).optional(),
+        ogImage: image().optional(),
 
         category: z.string(),
         pubDate: z.coerce.date(),

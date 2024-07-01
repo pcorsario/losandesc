@@ -5,6 +5,7 @@ pubDate: "2023-11-04 15:21:48"
 category: "life"
 banner: "@images/banners/QBB0CImWrPPETTcpQdkwYiMw0AnJL4CH4FJ1dq0O.jpeg"
 banner2: "@images/banners/a-turtle-2.png"
+banner3: "@images/banners/QBB0CImWrPPETTcpQdkwYiMw0AnJL4CH4FJ1dq0O.jpeg"
 tags: ["life"]
 oldViewCount: 1032
 selected: true
