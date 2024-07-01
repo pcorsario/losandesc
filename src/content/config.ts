@@ -1,18 +1,17 @@
 import { defineCollection, z } from 'astro:content'
-import { imager } from '../support/image.ts'
 
 const posts = defineCollection({
     type: 'content',
-    schema: () => z.object({
+    schema: ({ image }) => z.object({
         title: z.string(),
         description: z.string(),
-        banner: imager(),
+        banner: image(),
 
         // This banner will be shown in blog lists(/posts) if provided.
-        banner2: imager().optional(),
+        banner2: image().optional(),
 
         // The article OG cover, if not provided, use summary card, otherwise summary_large_image
-        ogImage: imager().optional(),
+        ogImage: image().optional(),
 
         category: z.string(),
         pubDate: z.coerce.date(),

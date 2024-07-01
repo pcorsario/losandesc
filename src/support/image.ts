@@ -1,10 +1,14 @@
 import fs from 'node:fs/promises'
-import { z } from 'astro:content'
-import { emitESMImage } from 'astro/assets/utils'
-import type { ImageMetadata } from 'astro'
-import { resolveFilePath } from './paths.ts'
 
-export interface Image extends ImageMetadata {
+export interface BlurImageMetadata {
+    /**
+     * The width of the origin image
+     */
+    width: number
+    /**
+     * The height of the origin image
+     */
+    height: number
     /**
      * blurDataURL of the image
      */
@@ -19,34 +23,8 @@ export interface Image extends ImageMetadata {
     blurHeight: number
 }
 
-export function imager() {
-    // add blur image support
-    // see https://github.com/withastro/astro/blob/d1ad3898a7d23e0942204baa9829a39f0f65469f/packages/astro/src/content/runtime-assets.ts#L30
-    return z.string().transform(async (path, ctx) => {
-        if (!path) {
-            return null
-        }
-
-        const filepath = resolveFilePath(path)
-        const metadata = await emitESMImage(filepath, false, undefined)
-
-        if (!metadata) {
-            ctx.addIssue({
-                code: 'custom',
-                message: `Image ${path} does not exist. Is the path correct?`,
-                fatal: true,
-            })
-
-            return z.never()
-        }
-
-        const blurImage = await blurImageMetadata(filepath)
-
-        return { ...metadata, ASTRO_ASSET: filepath, ...blurImage }
-    })
-}
-
-export function blurStyle(image: Image) {
+export async function blurStyle(filePath: string) {
+    const image = await blurImageMetadata(filePath)
     const svg = blurImageSVG(image)
     return {
         backgroundSize: 'cover',
@@ -56,7 +34,7 @@ export function blurStyle(image: Image) {
     }
 }
 
-function blurImageSVG(image: Image): string {
+function blurImageSVG(image: BlurImageMetadata): string {
     const { blurDataURL, blurWidth, blurHeight, width, height } = image
 
     const std = 20
@@ -68,7 +46,7 @@ function blurImageSVG(image: Image): string {
     return `%3Csvg xmlns='http://www.w3.org/2000/svg' ${viewBox}%3E%3Cfilter id='b' color-interpolation-filters='sRGB'%3E%3CfeGaussianBlur stdDeviation='${std}'/%3E%3CfeColorMatrix values='1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 100 -1' result='s'/%3E%3CfeFlood x='0' y='0' width='100%25' height='100%25'/%3E%3CfeComposite operator='out' in='s'/%3E%3CfeComposite in2='SourceGraphic'/%3E%3CfeGaussianBlur stdDeviation='${std}'/%3E%3C/filter%3E%3Cimage width='100%25' height='100%25' x='0' y='0' preserveAspectRatio='xMidYMid slice' style='filter: url(%23b);' href='${blurDataURL}'/%3E%3C/svg%3E`
 }
 
-async function blurImageMetadata(filepath: string): Promise<Pick<Image, 'blurDataURL' | 'blurWidth' | 'blurHeight'>> {
+async function blurImageMetadata(filepath: string): Promise<BlurImageMetadata> {
     const { default: sharp } = await import('sharp')
     const buffer = await fs.readFile(filepath)
 
@@ -84,5 +62,5 @@ async function blurImageMetadata(filepath: string): Promise<Pick<Image, 'blurDat
     const blurImage = await img.resize(blurWidth, blurHeight).avif({ quality: 10 }).toBuffer()
     const blurDataURL = `data:image/webp;base64,${blurImage.toString('base64')}`
 
-    return { blurDataURL, blurHeight, blurWidth }
+    return { blurDataURL, blurHeight, blurWidth, width, height }
 }
