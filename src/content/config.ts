@@ -35,4 +35,21 @@ const categoryCollection = defineCollection({
     }),
 })
 
-export const collections = { posts, categories: categoryCollection }
+const friendsCollection = defineCollection({
+    type: 'data',
+    schema: () => z.array(
+        z.object({
+            title: z.string(),
+            name: z.string(),
+            description: z.string(),
+            avatar: z.string(),
+            social: z.object({
+                twitter: z.string().optional(),
+                blog: z.string().optional(),
+                github: z.string().optional(),
+            }),
+        }),
+    ),
+})
+
+export const collections = { posts, categories: categoryCollection, friends: friendsCollection }

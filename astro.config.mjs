@@ -3,9 +3,9 @@ import mdx from '@astrojs/mdx'
 import tailwind from '@astrojs/tailwind'
 import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
-import { uploader } from 'astro-uploader'
 import { SITE } from './src/config.ts'
 import { remarkReadingTime } from './src/support/plugins.ts'
+import { uploadAssetsToS3 } from './src/support/uploader.ts'
 
 export default defineConfig({
     site: SITE.url,
@@ -27,15 +27,7 @@ export default defineConfig({
             SVG: true,
             Logger: 2,
         }),
-        // upload `assets` folder to S3 after build
-        uploader({
-            paths: ['assets'],
-            endpoint: process.env.S3_ENDPOINT,
-            bucket: process.env.S3_BUCKET,
-            accessKey: process.env.S3_ACCESS_KEY,
-            secretAccessKey: process.env.S3_SECRET_ACCESS_KEY,
-            root: 'gblog',
-        }),
+        uploadAssetsToS3(),
     ],
     markdown: {
         remarkPlugins: [remarkReadingTime],

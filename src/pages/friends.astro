@@ -1,9 +1,15 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro'
 import MainSection from '@components/sections/MainSection.astro'
-import { Friends } from '../config'
+import { getCollection } from 'astro:content'
+import type { CollectionEntry } from 'astro:content'
 
-const friends = Friends
+const friendsData: CollectionEntry<'friends'>[] = await getCollection('friends')
+if (friendsData?.length === 0) {
+    return Astro.redirect('/')
+}
+
+const friends = friendsData[0].data
 ---
 
 <BaseLayout title="Godruoyi's fiends" description="Godruoyi and his friends">
