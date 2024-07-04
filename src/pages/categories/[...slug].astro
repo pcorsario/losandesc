@@ -2,8 +2,8 @@
 import BaseLayout from '@layouts/BaseLayout.astro'
 import { type CollectionEntry, getCollection } from 'astro:content'
 import BlogCard from '@components/blog/BlogCard.astro'
-import MainSection from '@components/sections/MainSection.astro'
-import { SITE } from '../../config'
+import MainSection from '@components/ui/sections/MainSection.astro'
+import { SITE } from '@/config'
 
 export async function getStaticPaths() {
     const categories = await getCollection('categories')

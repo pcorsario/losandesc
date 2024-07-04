@@ -2,9 +2,9 @@
 import { type CollectionEntry, getCollection } from 'astro:content'
 import BaseLayout from '@layouts/BaseLayout.astro'
 import BlogComments from '@components/blog/BlogComments'
-import Image from '@components/Image.astro'
-import { timeago } from '../../support/time'
-import { SITE } from '../../config'
+import Image from '@components/ui/images/Image.astro'
+import { timeago } from '@support/time'
+import { SITE } from '@/config'
 
 export async function getStaticPaths() {
     const posts = await getCollection('posts')

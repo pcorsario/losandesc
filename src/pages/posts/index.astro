@@ -4,8 +4,8 @@ import type { CollectionEntry } from 'astro:content'
 import BaseLayout from '@layouts/BaseLayout.astro'
 import BlogRecentCard from '@components/blog/BlogRecentCard.astro'
 import BlogSelectedArticle from '@components/blog/BlogSelectedArticle.astro'
-import MainSection from '@components/sections/MainSection.astro'
-import { SITE } from '../../config'
+import MainSection from '@components/ui/sections/MainSection.astro'
+import { SITE } from '@/config'
 
 const posts: CollectionEntry<'posts'>[] = (await getCollection('posts')).sort(
     (a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),

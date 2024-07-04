@@ -5,7 +5,7 @@ import { experimental_AstroContainer as AstroContainer } from 'astro/container'
 import RSSRender from '@components/support/RSSRender.astro'
 import { transform, walk } from 'ultrahtml'
 import sanitize from 'ultrahtml/transformers/sanitize'
-import { SITE } from '../config.ts'
+import { SITE } from '@/config.ts'
 
 // see https://github.com/delucis/astro-blog-full-text-rss/blob/latest/src/pages/rss.xml.ts
 // get more context

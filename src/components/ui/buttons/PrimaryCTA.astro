@@ -1,11 +1,11 @@
 ---
-import Icon from '@components/icons/icon.astro'
+import Icon from '@components/ui/icons/icon.astro'
 
-const { title, id, noArrow } = Astro.props
+const { title, url, noArrow } = Astro.props
 
 interface Props {
   title?: string
-  id?: string
+  url?: string
   noArrow?: boolean
 }
 
@@ -17,7 +17,11 @@ const fontSizeClasses = '2xl:text-base'
 const ringClasses = 'dark:ring-zinc-200';
 ---
 
-<button class={`${baseClasses} ${borderClasses} ${bgColorClasses} ${disableClasses} ${fontSizeClasses} ${ringClasses}`} id={id}>
-    {title}
-    {noArrow ? null : <Icon name="arrowRight" />}
-</button>
+<a
+    class={`${baseClasses} ${borderClasses} ${bgColorClasses} ${disableClasses} ${fontSizeClasses} ${ringClasses}`}
+    href={url}
+    data-astro-prefetch
+>
+  {title}
+  {noArrow ? null : <Icon name="arrowRight" />}
+</a>

@@ -3,9 +3,9 @@ import { getCollection } from 'astro:content'
 import type { CollectionEntry } from 'astro:content'
 import BaseLayout from '@layouts/BaseLayout.astro'
 import BlogCategory from '@components/blog/BlogCategory.astro'
-import MainSection from '../../components/sections/MainSection.astro'
-import { timeago } from '../../support/time'
-import { SITE } from '../../config'
+import MainSection from '@components/ui/sections/MainSection.astro'
+import { timeago } from '@support/time'
+import { SITE } from '@/config'
 
 const postMap: Map<string, CollectionEntry<'posts'>[]> = (await getCollection('posts')).sort(
     (a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
