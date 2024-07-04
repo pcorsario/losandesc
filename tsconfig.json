@@ -6,11 +6,13 @@
         "jsx": "react-jsx",
         "types": ["astro/client"],
         "paths": {
+            "@/*": ["*"],
             "@src/*": ["src/*"],
             "@components/*": ["components/*"],
             "@content/*": ["content/*"],
             "@layouts/*": ["layouts/*"],
             "@pages/*": ["pages/*"],
+            "@support/*": ["support/*"],
             "@images/*": [
                 "images/*"
             ]

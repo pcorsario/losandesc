@@ -1,6 +1,6 @@
 import { uploader } from 'astro-uploader'
 import type { AstroIntegration } from 'astro'
-import { Settings } from '../config.ts'
+import { Settings } from './../config.ts'
 
 const NullAstroIntegration = { name: 'null', hooks: {} } as AstroIntegration
 

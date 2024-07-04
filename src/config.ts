@@ -1,5 +1,5 @@
-import type { NavigationLink, Site } from './types.ts'
 import { isProd } from './support/envs.ts'
+import type { NavigationLink, Site } from './types.ts'
 
 export const SITE: Site = {
     author: 'Godruoyi',
