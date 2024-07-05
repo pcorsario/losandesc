@@ -5,7 +5,7 @@ pubDate: "2024-07-05 16:16:00"
 category: "life"
 banner: "@images/posts/america/banner.png"
 banner2: "@images/posts/america/banner2.png"
-tags: ["laravel"]
+tags: ["生活", "感悟"]
 ---
 
 昨天晚上开了一个小时的会，受益良多；以下只是我的感悟，**请不要**信以为真。
