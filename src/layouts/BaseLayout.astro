@@ -3,6 +3,7 @@ import BaseHead from '@components/BaseHead.astro'
 import Footer from '@components/Footer.astro'
 import Header from '@components/Header.astro'
 import GoogleAnalytics from '@components/support/GoogleAnalytics.astro'
+import UmamiAnalytics from '@components/support/UmamiAnalytics.astro'
 import { SITE } from '@/config'
 
 interface Props {
@@ -29,24 +30,24 @@ const normalizeTitle = !title ? SITE.title : `${title} | ${SITE.title}`
             structuredData={structuredData}
         />
         <script is:inline>
- if (localStorage.getItem('hs_theme') === 'dark'
-     || (!('hs_theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-     document.documentElement.classList.add('dark')
- }
- else {
-     document.documentElement.classList.remove('dark')
- }
- </script>
-        <script is:inline src="/vendor/lenis/lenis1.0.42.min.js"></script>
+         if (localStorage.getItem('hs_theme') === 'dark' || (!('hs_theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+             document.documentElement.classList.add('dark')
+         }
+         else {
+             document.documentElement.classList.remove('dark')
+         }
+         </script>
+        <script is:inline src="/vendor/lenis/lenis1.1.5.min.js"></script>
         <script is:inline>
-const lenis = new Lenis()
-function raf(time) {
-    lenis.raf(time)
-    requestAnimationFrame(raf)
-}
-requestAnimationFrame(raf)
-</script>
+        const lenis = new Lenis()
+        function raf(time) {
+            lenis.raf(time)
+            requestAnimationFrame(raf)
+        }
+        requestAnimationFrame(raf)
+        </script>
         <GoogleAnalytics />
+        <UmamiAnalytics />
     </head>
     <body class="bg-neutral-200 selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800">
         <div class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">

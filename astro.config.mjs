@@ -3,6 +3,7 @@ import mdx from '@astrojs/mdx'
 import tailwind from '@astrojs/tailwind'
 import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
+import partytown from '@astrojs/partytown'
 import { SITE } from './src/config.ts'
 import { remarkReadingTime } from './src/support/plugins.ts'
 import { uploadAssetsToS3 } from './src/support/uploader.ts'
@@ -15,6 +16,7 @@ export default defineConfig({
         // service: passthroughImageService(),
     },
     integrations: [
+        partytown(),
         mdx(),
         sitemap(),
         tailwind(),
