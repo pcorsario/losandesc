@@ -43,6 +43,11 @@ export const Settings = {
         id: 'G-TKQ4L3ZDSF',
     },
 
+    UmamiAnalytics: {
+        enable: true,
+        dataWebsiteID: 'bf63658a-9418-4f39-a6a1-5a0cedb6e429',
+    },
+
     Assets: {
         // If you don't want to upload the build assert(image/js/css/etc...) anywhere, simply set this to false
         uploadAssetsToS3: isProd(),
