@@ -1,4 +1,3 @@
-import { isProd } from './support/envs.ts'
 import type { NavigationLink, Site } from './types.ts'
 
 export const SITE: Site = {
@@ -49,8 +48,8 @@ export const Settings = {
     },
 
     Assets: {
-        // If you don't want to upload the build assert(image/js/css/etc...) anywhere, simply set this to false
-        uploadAssetsToS3: isProd(),
+        // If you don't want to upload the build assert(image/js/css/etc...) to anywhere, just set this to false
+        uploadAssetsToS3: !!process.env.S3_ENABLE,
         config: {
             // see https://github.com/syhily/astro-uploader to get how to configure the uploader API
             // The following configuration will upload the compiled `assets` directory to the `gblog` folder in S3 or R2.
