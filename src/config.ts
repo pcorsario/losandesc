@@ -42,6 +42,7 @@ export const Settings = {
         id: 'G-TKQ4L3ZDSF',
     },
 
+    // See https://github.com/umami-software/umami
     UmamiAnalytics: {
         enable: true,
         dataWebsiteID: 'bf63658a-9418-4f39-a6a1-5a0cedb6e429',
