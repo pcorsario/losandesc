@@ -22,4 +22,4 @@ tags: ["生活"]
 
 我不知道如何回复电话那头这样的质问，我也不明白所谓的人情世故到底是什么，我只是更愿意过好自己的生活。
 
-2025 年 08 月 09 号，记于构棉坝。关于乡里人的酒席，可以看看我之前的另一篇文章 —— [办酒](https://godruoyi.com/posts/banjiu/)。
+关于乡里人的风土人情，你可以看看我之前的[老家的变化](https://godruoyi.com/posts/the-changes-in-my-hometown/)，而乡里人对办酒的热爱，从[办酒](https://godruoyi.com/posts/banjiu/)可见一般。
