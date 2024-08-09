@@ -4,7 +4,7 @@ description: "早上在群里看到有同事在问关于 Outbox Pattern 的问�
 pubDate: "2024-08-04 15:43:00"
 category: "whatis"
 banner: "@images/posts/outbox-pattern/banner1.jpg"
-banner2: "@images/posts/outbox-pattern/banner1.jpg"
+banner2: "@images/posts/outbox-pattern/banner1.png"
 tags: ["技术"]
 ---
 
