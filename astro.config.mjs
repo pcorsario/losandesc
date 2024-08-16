@@ -11,8 +11,8 @@ import { uploadAssetsToS3 } from './src/support/uploader.ts'
 export default defineConfig({
     site: SITE.url,
     image: {
-        // If you prefer not to optimize images during the BUILD,
-        // you can open this comment, It will greatly reduce the build time.
+        // If you don't want to optimize images during the BUILD process,
+        // you can open this comment. It will significantly reduce the build time but won't optimize any images anymore.
         // service: passthroughImageService(),
     },
     integrations: [
@@ -48,7 +48,10 @@ export default defineConfig({
     prefetch: true,
     output: 'static',
     build: {
+        // Specifies the directory in the build output where Astro-generated assets (bundled JS and CSS for example) should live.
+        // see https://docs.astro.build/en/reference/configuration-reference/#buildassets
         assets: 'assets',
+        // see https://docs.astro.build/en/reference/configuration-reference/#buildassetsprefix
         assetsPrefix: 'https://images.godruoyi.com/gblog',
     },
 })

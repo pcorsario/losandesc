@@ -5,13 +5,13 @@ const posts = defineCollection({
     schema: ({ image }) => z.object({
         title: z.string(),
         description: z.string(),
-        banner: image(),
+        banner: image().or(z.string()),
 
         // This banner will be shown in blog lists(/posts) if provided.
-        banner2: image().optional(),
+        banner2: image().or(z.string()).optional(),
 
         // The article OG cover, if not provided, use summary card, otherwise summary_large_image
-        ogImage: image().optional(),
+        ogImage: image().or(z.string()).optional(),
 
         category: z.string(),
         pubDate: z.coerce.date(),
