@@ -1,7 +1,9 @@
 import * as React from 'react'
-import Giscus from '@giscus/react'
+import Giscus, { type Repo } from '@giscus/react'
+import { Settings } from '@/config.ts'
 
 const id = 'inject-comments'
+const commentSetting = Settings.Comment.giscus
 
 function getCurrentTheme(): string {
     if (window.localStorage.getItem('hs_theme')) {
@@ -11,17 +13,24 @@ function getCurrentTheme(): string {
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default'
 }
 
+function convertThemToGiscusThem(them: any): string {
+    if (!them) {
+        return commentSetting.lightThem
+    }
+
+    return them === 'dark' ? commentSetting.darkThem : commentSetting.lightThem
+}
+
 function BlogComments() {
     const [mounted, setMounted] = React.useState(false)
-    const [theme, setTheme] = React.useState('dark')
+    const [theme, setTheme] = React.useState(convertThemToGiscusThem(getCurrentTheme()))
 
     const handleThemeChange = (event: any) => {
-        const theme = event?.detail ?? 'light'
-        setTheme(theme)
+        setTheme(convertThemToGiscusThem(event?.detail))
     }
 
     React.useEffect(() => {
-        const theme = getCurrentTheme()
+        const theme = convertThemToGiscusThem(getCurrentTheme())
         setTheme(theme)
 
         window.addEventListener('on-hs-appearance-change', handleThemeChange)
@@ -41,10 +50,10 @@ function BlogComments() {
                 ? (
                     <Giscus
                         id={id}
-                        repo="godruoyi/gblog"
-                        repoId="MDEwOlJlcG9zaXRvcnkxMjcyODI0NzA"
-                        category="Announcements"
-                        categoryId="DIC_kwDOB5YtJs4CfZnX"
+                        repo={commentSetting.repo as Repo}
+                        repoId={commentSetting.repoId}
+                        category={commentSetting.category}
+                        categoryId={commentSetting.categoryId}
                         mapping="title"
                         reactionsEnabled="1"
                         emitMetadata="0"
