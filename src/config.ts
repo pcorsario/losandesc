@@ -52,8 +52,8 @@ export const Settings = {
         // If you don't want to upload the build assert(image/js/css/etc...) to anywhere, just set this to false
         uploadAssetsToS3: !!process.env.S3_ENABLE,
         config: {
-            // see https://github.com/syhily/astro-uploader to get how to configure the uploader API
-            // The following configuration will upload the compiled `assets` directory to the `gblog` folder in S3 or R2.
+            // see https://github.com/syhily/astro-uploader to get how to configure the uploader,
+            // The following configuration will upload the compiled `assets` folder to S3 or R2.
             // You can set a separate domain for it so that you can access all resources using a CDN domain name.
             //
             // For example: https://images.godruoyi.com/gblog/assets/brand-logo.webp
