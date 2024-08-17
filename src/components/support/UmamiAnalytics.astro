@@ -7,7 +7,7 @@ const enable = Settings?.UmamiAnalytics?.enable
 
 {
     enable && (
-        <script is:inline type="text/partytown" src="https://cloud.umami.is/script.js" data-website-id=`${ID}`></script>
+        <script defer src="https://cloud.umami.is/script.js" data-website-id=`${ID}`></script>
     )
 }
 
