@@ -1,19 +1,19 @@
 import type { NavigationLink, Site } from './types.ts'
 
 export const SITE: Site = {
-    author: 'Godruoyi',
-    url: 'https://godruoyi.com',
-    title: '连波的闲谈杂鱼',
+    author: 'TecniSmartSD',
+    url: 'https://www.losandesc.com',
+    title: 'Los Andes - Escuela de Conducción',
     description: 'Godruoyi\'s personal blog, I enjoy the process of building something using any technology stack',
     shortDescription: '',
 }
 
 export const NavigationLinks: NavigationLink[] = [
-    { name: 'Posts', url: '/posts' },
-    { name: 'Category', url: '/categories' },
-    { name: 'Timeline', url: '/timeline' },
-    { name: 'About', url: '/posts/about-godruoyi' },
-    { name: 'Friends', url: '/friends' },
+    { name: 'Servicios', url: '/post' },
+    { name: 'Conocenos', url: '/' },
+    { name: 'Blog', url: '/timeline' },
+    { name: 'Contáctanos', url: '/posts/about-godruoyi' },
+    { name: 'Nuestros Clientes', url: '/friends' },
 ]
 
 export const FooterLinks = [

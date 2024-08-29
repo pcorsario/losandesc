@@ -28,9 +28,11 @@ interface Props {
 
 <section class="mx-auto grid max-w-[85rem] gap-4 px-4 py-14 sm:px-6 md:grid-cols-2 md:items-center md:gap-8 lg:px-8 2xl:max-w-full">
     <div>
-        <h1 class="block text-balance text-3xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 sm:text-4xl lg:text-6xl lg:leading-tight">
+        <h2 class="block text-balance text-3xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 sm:text-4xl lg:text-6xl lg:leading-tight">
             <Fragment set:html={title} />
-        </h1>
+             <!-- LOS ANDES  -->
+        </h2>
+        <!-- <span>ESCUELA DE CONDUCCIÓN</span> -->
         {subTitle && (
             <p class="mt-6 text-pretty text-lg leading-relaxed text-neutral-700 dark:text-neutral-400 lg:w-4/5">
                 {subTitle}
@@ -49,7 +51,7 @@ interface Props {
                 <Image
                     src={src}
                     alt={alt}
-                    class="h-full w-[320px] scale-100 object-cover object-center"
+                    class="h-auto w-full md:w-[640px] lg:w-[800px] xl:w-[1024px] scale-100 object-cover object-center"
                     draggable="false"
                     loading="eager"
                     format="avif"
