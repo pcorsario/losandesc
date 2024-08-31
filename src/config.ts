@@ -4,16 +4,16 @@ export const SITE: Site = {
     author: 'TecniSmartSD',
     url: 'https://www.losandesc.com',
     title: 'Los Andes - Escuela de Conducción',
-    description: 'Godruoyi\'s personal blog, I enjoy the process of building something using any technology stack',
+    description: 'Los Andes - Escuela de Conducción',
     shortDescription: '',
 }
 
 export const NavigationLinks: NavigationLink[] = [
-    { name: 'Servicios', url: '/post' },
-    { name: 'Conocenos', url: '/' },
+    { name: 'Inicio', url: '/' },
     { name: 'Blog', url: '/timeline' },
-    { name: 'Contáctanos', url: '/posts/about-godruoyi' },
-    { name: 'Nuestros Clientes', url: '/friends' },
+    { name: 'Noticias', url: '/posts' },
+    { name: 'Contáctanos', url: '/posts/contactanos' },
+    // { name: 'Nuestros Clientes', url: '/friends' },
 ]
 
 export const FooterLinks = [
@@ -22,16 +22,16 @@ export const FooterLinks = [
         links: [
             { name: 'Posts', url: '/posts' },
             { name: 'Timeline', url: '/timeline' },
-            { name: 'Categories', url: '/categories' },
-            { name: 'About Me', url: '/posts/about-godruoyi' },
+            // { name: 'Categories', url: '/categories' },
+            { name: 'Contáctanos', url: '/posts/contactanos' },
         ],
     },
     {
         section: 'Other',
         links: [
             { name: 'RSS', url: '/rss.xml' },
-            { name: 'Site Map', url: '/sitemap-index.xml' },
-            { name: 'Twitter', url: 'https://x.com/godruoyi' },
+            // { name: 'Sit§e Map', url: '/sitemap-index.xml' },
+            // { name: 'Twitter', url: 'https://x.com/godruoyi' },
         ],
     },
 ]

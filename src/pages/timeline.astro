@@ -13,7 +13,7 @@ const URL = Astro.url.href
 ---
 
 <BaseLayout
-    title="Timeline"
+    title="Linea de Tiempo"
     description={description}
     structuredData={{
         '@context': 'https://schema.org',
@@ -33,9 +33,9 @@ const URL = Astro.url.href
 >
     <section class="mx-auto max-w-[85rem] mt-10 lg:mt-10 px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
         <div class="max-w-3xl mx-auto mb-10 lg:mb-14">
-            <h2 class="text-3xl font-bold text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight">Timeline</h2>
+            <h2 class="text-3xl font-bold text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight">Linea de Tiempo</h2>
             <p class="mt-4 text-lg group text-pretty text-neutral-600 dark:text-neutral-400">
-                目前一共写了 <span class="group-hover:text-yellow-500 group-hover:dark:text-yellow-400">{posts.length}</span> 篇文章，再接再厉吧 💪
+                Revisas nuestras <span class="group-hover:text-yellow-500 group-hover:dark:text-yellow-400">{posts.length}</span>  publicaciones💪
             </p>
         </div>
         {posts.map(p => <BlogTimeline blog={p} />)}

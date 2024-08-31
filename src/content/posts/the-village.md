@@ -1,25 +1,24 @@
 ---
-title: "没人抬"
-description: "乡里人怕的，是自己死了后，找不到人抬，我不明白。"
+title: "Licencia Tipo B"
+description: "¡Conduce hacia tu futuro con la Escuela de Conducción Los Andes ! 🚗"
 pubDate: "2024-08-09 13:54:00"
 category: "life"
-banner: "@images/posts/the-village/banner2.png"
-banner2: "@images/posts/the-village/banner1.png"
-tags: ["生活"]
+banner: "@images/posts/licencias/bannerlicenciatipob.png"
+banner2: "@images/posts/licencias/bannerlicenciatipob.png"
+tags: ["Admin"]
 ---
 
-乡里人怕的，是自己死了后，找不到人抬，我不明白。
+¡Conduce hacia tu futuro con la Escuela de Conducción Los Andes ! 🚗
 
-在电话里跟人吵了起来，说我不懂人情事故，自己家亲叔叔泡学酒都不来。而所谓学酒，无非就是自家的孩子考上了大学，请上两桌聊表庆祝，再收回这两年送出去的人亲钱，这在乡里十分常见。
+¿Listo para obtener tu licencia tipo B? Aquí tienes los requisitos:
+✅ Ser mayor de edad
+✅ 2 fotos tamaño carnet
+✅ 2 copias a color de la cédula
+✅ Certificado de aprobación de décimo año legalizado por el distrito de educación o título de bachiller (para extranjeros: título apostillado)
 
-一大早，他们懂人情世故的人，就驱车两三个小时前往市里去吃酒了，我没去，我要上班。
-
-乡里人有个规矩，无论周围哪家办酒，亲戚还是邻居，还是上个寨子的人。在外面的人都要回来；即使家里人父母健在，远在他乡的人都要赶回来；有从上海回来的，有从贵阳回来的，开十几个小时的车，再请上三五天假，以表示对这家人的尊重，特别是如果他们家有个儿子的话。
-
-而那些选择不回来的人，乡里人对他们是不满的，这些不满往往会在他们办酒时体现出来，如找不到人来帮忙；乡里人是没有丧事喜事一条龙服务的，靠的只是邻里邻居相互帮忙。若恰巧他们办的是丧事，那出殡时怕是找不到人抬的，乡里人就站在边上，也不接散的烟，睥睨着一切。
-
-你现在傲气，到时候有你求人的那天。
-
-我不知道如何回复电话那头这样的质问，我也不明白所谓的人情世故到底是什么，我只是更愿意过好自己的生活。
-
-关于乡里人的风土人情，你可以看看我之前的[老家的变化](https://godruoyi.com/posts/the-changes-in-my-hometown/)，而乡里人对办酒的热爱，从[办酒](https://godruoyi.com/posts/banjiu/)可见一般。
+*¡Oferta especial!*
+Licencia sportman a tan solo $155.
+¡No te quedes fuera, últimos cupos disponibles!
+Visítanos en Av. La Prensa y Ángel Ludeña.
+¡Tu camino a la libertad comienza aquí!
+#Quito #licenciaquito #sportmantipob #licenciatipob #quitoconduccion #LosAndes #escuela ##agencianacionaldetránsito Ver menos

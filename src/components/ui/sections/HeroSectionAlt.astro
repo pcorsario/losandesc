@@ -3,7 +3,7 @@ import GithubBtn from '@components/ui/buttons/GithubBtn.astro'
 
 const { title, subTitle, url } = Astro.props
 
-const btnTitle = 'Continue with Github'
+const btnTitle = 'Facebook'
 
 interface Props {
     title: string
@@ -135,6 +135,8 @@ interface Props {
       <div class="mt-8 flex justify-center gap-3">
         <GithubBtn url={url} title={btnTitle} />
       </div>
+      
     )
   }
+  
 </section>
