@@ -38,6 +38,17 @@ const isVirtualEnv = url === 'https://eva.losandesc.com/'
     .dark .virtual-env-btn:hover {
         background-color: rgb(126, 34, 206) !important;
     }
+
+    /* Estilos para el enlace activo */
+    a[aria-current="page"] {
+        background-color: rgb(30, 58, 138) !important;
+        color: white !important;
+    }
+
+    .dark a[aria-current="page"] {
+        background-color: rgb(30, 64, 175) !important;
+        color: white !important;
+    }
 </style>
 
 <script>
@@ -57,7 +68,6 @@ const isVirtualEnv = url === 'https://eva.losandesc.com/'
              'hover:text-neutral-500',
              'dark:hover:text-neutral-500',
          )
-         nav.classList.add('text-yellow-600', 'dark:text-blue-400')
          nav.setAttribute('aria-current', 'page')
      }
  })
