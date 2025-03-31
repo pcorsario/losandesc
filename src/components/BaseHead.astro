@@ -1,7 +1,6 @@
 ---
 import { getImage } from 'astro:assets'
 import brandSrc from '@images/brand_logo.jpeg'
-import faviconSvgSrc from '@images/favicon_icon.svg'
 import faviconSrc from '@images/favicon_icon.png'
 import { SEO, SITE } from '@/config'
 
@@ -30,7 +29,7 @@ if (!ogImage) {
     card = 'summary'
 }
 
-const faviconSvg = await getImage({ src: faviconSvgSrc, format: 'svg' })
+const favicon = await getImage({ src: faviconSrc, width: 32, height: 32, format: 'png' })
 const appleTouchIcon = await getImage({ src: faviconSrc, width: 180, height: 180, format: 'png' })
 const socialImageRes = await getImage({ src: ogImage, width: 1200, height: 600 })
 
@@ -86,7 +85,6 @@ if (!socialImage.startsWith('http')) {
 <link href={canonicalURL} rel="canonical" />
 <link rel="sitemap" href="/sitemap-index.xml" />
 <!--<link href="/manifest.json" rel="manifest" />-->
-<link href="/favicon.ico" rel="icon" sizes="any" type="image/x-icon" />
-<link href={faviconSvg.src} rel="icon" type="image/svg+xml" sizes="any" />
+<link href={favicon.src} rel="icon" type="image/png" sizes="32x32" />
 <link href={appleTouchIcon.src} rel="apple-touch-icon" />
 <link href={appleTouchIcon.src} rel="shortcut icon" />

@@ -5,6 +5,7 @@ import Header from '@components/Header.astro'
 import GoogleAnalytics from '@components/support/GoogleAnalytics.astro'
 import UmamiAnalytics from '@components/support/UmamiAnalytics.astro'
 import { SITE } from '@/config'
+import '../styles/globals.css'
 
 interface Props {
     title: string
@@ -50,8 +51,8 @@ const normalizeTitle = !title ? SITE.title : `${title} | ${SITE.title}`
         <UmamiAnalytics />
     </head>
     <body class="bg-neutral-200 selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800">
+        <Header />
         <div class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">
-            <Header />
             <main>
                 <slot />
             </main>

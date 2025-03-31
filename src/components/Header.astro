@@ -5,19 +5,25 @@ import Theme from '@components/ui/logos/Theme.astro'
 import { NavigationLinks } from '@/config'
 ---
 
-<header class="sticky inset-x-0 top-4 z-50 flex w-full flex-wrap text-sm md:flex-nowrap md:justify-start">
+<header class="sticky inset-x-0 top-0 z-50 flex w-full flex-wrap text-sm md:flex-nowrap md:justify-start">
     <nav
-        class="relative mx-2 w-full rounded-[36px] border border-neutral-100 bg-neutral-100 px-4 py-3 backdrop-blur-md dark:border-neutral-700/40 dark:bg-neutral-800/80 dark:backdrop-blur-md md:flex md:items-center md:justify-between md:px-6 lg:px-8 xl:mx-auto"
+        class="relative w-full rounded-lg border border-neutral-100 bg-neutral-200 px-4 py-3 backdrop-blur-md dark:border-neutral-700/40 dark:bg-neutral-800 dark:backdrop-blur-md md:flex md:items-center md:justify-between md:px-6 lg:px-8"
         aria-label="Global"
     >
-        <div class="flex items-center justify-between ">
-            <a
-                class="h-[42px] flex-none rounded-lg text-xl font-bold outline-none ring-zinc-500 focus-visible:ring dark:ring-zinc-200 dark:focus:outline-none"
-                href="/"
-                aria-label="Brand"
-            >
-                <BrandLogo class="h-full w-auto object-cover rounded-full" />
-            </a>
+        <div class="flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <a
+                    class="h-[42px] flex-none rounded-lg text-xl font-bold outline-none ring-zinc-500 focus-visible:ring dark:ring-zinc-200 dark:focus:outline-none"
+                    href="/"
+                    aria-label="Brand"
+                >
+                    <BrandLogo class="h-full w-auto object-cover rounded-full" />
+                </a>
+                <div class="hidden md:block whitespace-nowrap leading-tight">
+                    <div class="text-[10px] font-semibold text-[#021752] dark:text-blue-900">Instituto Tecnológico Superior</div>
+                    <div class="text-base font-bold text-[#021752] dark:text-blue-900">Los Andes</div>
+                </div>
+            </div>
 
             <div class="ml-auto md:hidden">
                 <button
@@ -73,145 +79,151 @@ import { NavigationLinks } from '@/config'
                 {NavigationLinks.map(link => (
                     <NavLink url={link.url} name={link.name} />
                 ))}
-                <span class="hidden md:inline-block">
+                <!-- <span class="hidden md:inline-block">
                     <Theme />
-                </span>
+                </span> -->
+                
             </div>
         </div>
     </nav>
 </header>
 <script is:inline>
-const ViewTransitionStyleCSS = `::view-transition-group(root) {
-    animation-timing-function: var(--expo-out);
-}
-::view-transition-new(root) {
-    mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><defs><filter id="blur"><feGaussianBlur stdDeviation="2"/></filter></defs><circle cx="0" cy="0" r="18" fill="white" filter="url(%23blur)"/></svg>') top left / 0 no-repeat;
-    mask-origin: content-box;
-    animation: scale 1s;
-    transform-origin: top left;
-}
-::view-transition-old(root),.dark::view-transition-old(root) {
-    animation: scale 1s;
-    transform-origin: top left;
-    z-index: -1;
-}
-@keyframes scale {
-    to {
-        mask-size: 350vmax;
-    }
-}`
-const viewTransitionStyleElement = document.createElement('style')
-document.head.appendChild(viewTransitionStyleElement)
-const injectViewTransitionStyleCSS = () => viewTransitionStyleElement.textContent = ViewTransitionStyleCSS
+// const ViewTransitionStyleCSS = `::view-transition-group(root) {
+//     animation-timing-function: var(--expo-out);
+// }
+// ::view-transition-new(root) {
+//     mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><defs><filter id="blur"><feGaussianBlur stdDeviation="2"/></filter></defs><circle cx="0" cy="0" r="18" fill="white" filter="url(%23blur)"/></svg>') top left / 0 no-repeat;
+//     mask-origin: content-box;
+//     animation: scale 1s;
+//     transform-origin: top left;
+// }
+// ::view-transition-old(root),.dark::view-transition-old(root) {
+//     animation: scale 1s;
+//     transform-origin: top left;
+//     z-index: -1;
+// }
+// @keyframes scale {
+//     to {
+//         mask-size: 350vmax;
+//     }
+// }`
+// const viewTransitionStyleElement = document.createElement('style')
+// document.head.appendChild(viewTransitionStyleElement)
+// const injectViewTransitionStyleCSS = () => viewTransitionStyleElement.textContent = ViewTransitionStyleCSS
 
-const HSThemeAppearance = {
-    init() {
-        const defaultTheme = 'default'
-        const theme = localStorage.getItem('hs_theme') || defaultTheme
+// const HSThemeAppearance = {
+//     init() {
+//         const defaultTheme = 'default'
+//         const theme = localStorage.getItem('hs_theme') || defaultTheme
 
-        if (document.querySelector('html').classList.contains('dark')) {
-            return
-        }
+//         if (document.querySelector('html').classList.contains('dark')) {
+//             return
+//         }
 
-        this.setAppearance(theme)
-    },
+//         this.setAppearance(theme)
+//     },
 
-    _resetStylesOnLoad() {
-        const $resetStyles = document.createElement('style')
-        $resetStyles.textContent = `*{transition: unset !important;}`
-        $resetStyles.setAttribute('data-hs-appearance-onload-styles', '')
-        document.head.appendChild($resetStyles)
-        return $resetStyles
-    },
+//     _resetStylesOnLoad() {
+//         const $resetStyles = document.createElement('style')
+//         $resetStyles.textContent = `*{transition: unset !important;}`
+//         $resetStyles.setAttribute('data-hs-appearance-onload-styles', '')
+//         document.head.appendChild($resetStyles)
+//         return $resetStyles
+//     },
 
-    setAppearance(theme, saveInStore = true, dispatchEvent = true) {
-        const $resetStylesEl = this._resetStylesOnLoad()
+//     setAppearance(theme, saveInStore = true, dispatchEvent = true) {
+//         const $resetStylesEl = this._resetStylesOnLoad()
 
-        if (saveInStore) {
-            localStorage.setItem('hs_theme', theme)
-        }
+//         if (saveInStore) {
+//             localStorage.setItem('hs_theme', theme)
+//         }
 
-        if (theme === 'auto') {
-            theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default'
-        }
+//         if (theme === 'auto') {
+//             theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default'
+//         }
 
-        document.querySelector('html').classList.remove('dark')
-        document.querySelector('html').classList.remove('default')
-        document.querySelector('html').classList.remove('auto')
+//         document.querySelector('html').classList.remove('dark')
+//         document.querySelector('html').classList.remove('default')
+//         document.querySelector('html').classList.remove('auto')
 
-        document.querySelector('html').classList.add(this.getOriginalAppearance())
+//         document.querySelector('html').classList.add(this.getOriginalAppearance())
 
-        setTimeout(() => $resetStylesEl.remove())
+//         setTimeout(() => $resetStylesEl.remove())
 
-        if (dispatchEvent) {
-            window.dispatchEvent(new CustomEvent('on-hs-appearance-change', { detail: theme }))
-        }
-    },
+//         if (dispatchEvent) {
+//             window.dispatchEvent(new CustomEvent('on-hs-appearance-change', { detail: theme }))
+//         }
+//     },
 
-    getAppearance() {
-        let theme = this.getOriginalAppearance()
-        if (theme === 'auto') {
-            theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default'
-        }
+//     getAppearance() {
+//         let theme = this.getOriginalAppearance()
+//         if (theme === 'auto') {
+//             theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default'
+//         }
 
-        return theme
-    },
+//         return theme
+//     },
 
-    getOriginalAppearance() {
-        const defaultTheme = 'default'
-        return localStorage.getItem('hs_theme') || defaultTheme
-    },
-}
+//     getOriginalAppearance() {
+//         const defaultTheme = 'default'
+//         return localStorage.getItem('hs_theme') || defaultTheme
+//     },
+// }
 
-HSThemeAppearance.init()
+// HSThemeAppearance.init()
 
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-    if (HSThemeAppearance.getOriginalAppearance() === 'auto') {
-        HSThemeAppearance.setAppearance('auto', false)
-    }
-})
+// window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+//     if (HSThemeAppearance.getOriginalAppearance() === 'auto') {
+//         HSThemeAppearance.setAppearance('auto', false)
+//     }
+// })
 
-window.addEventListener('load', () => {
-    const $clickableThemes = document.querySelectorAll(
-        '[data-hs-theme-click-value]',
-    )
-    const $switchableThemes = document.querySelectorAll(
-        '[data-hs-theme-switch]',
-    )
+// window.addEventListener('load', () => {
+//     const $clickableThemes = document.querySelectorAll(
+//         '[data-hs-theme-click-value]',
+//     )
+//     const $switchableThemes = document.querySelectorAll(
+//         '[data-hs-theme-switch]',
+//     )
 
-    $clickableThemes.forEach(($item) => {
-        $item.addEventListener('click', () => {
-            const switchThem = () => HSThemeAppearance.setAppearance(
-                $item.getAttribute('data-hs-theme-click-value'),
-                true,
-                true,
-            )
+//     $clickableThemes.forEach(($item) => {
+//         $item.addEventListener('click', () => {
+//             const switchThem = () => HSThemeAppearance.setAppearance(
+//                 $item.getAttribute('data-hs-theme-click-value'),
+//                 true,
+//                 true,
+//             )
 
-            if (document.startViewTransition) {
-                document.startViewTransition(() => {
-                    injectViewTransitionStyleCSS()
-                    switchThem()
-                })
-            }
-            else {
-                switchThem()
-            }
-        })
-    })
+//             if (document.startViewTransition) {
+//                 document.startViewTransition(() => {
+//                     injectViewTransitionStyleCSS()
+//                     switchThem()
+//                 })
+//             }
+//             else {
+//                 switchThem()
+//             }
+//         })
+//     })
 
-    $switchableThemes.forEach(($item) => {
-        $item.addEventListener('change', (e) => {
-            HSThemeAppearance.setAppearance(e.target.checked ? 'dark' : 'default')
-        })
+//     $switchableThemes.forEach(($item) => {
+//         $item.addEventListener('change', (e) => {
+//             HSThemeAppearance.setAppearance(e.target.checked ? 'dark' : 'default')
+//         })
 
-        $item.checked = HSThemeAppearance.getAppearance() === 'dark'
-    })
+//         $item.checked = HSThemeAppearance.getAppearance() === 'dark'
+//     })
 
-    window.addEventListener('on-hs-appearance-change', (e) => {
-        $switchableThemes.forEach(($item) => {
-            $item.checked = e.detail === 'dark'
-        })
-    })
-})
+//     window.addEventListener('on-hs-appearance-change', (e) => {
+//         $switchableThemes.forEach(($item) => {
+//             $item.checked = e.detail === 'dark'
+//         })
+//     })
+
+    document.addEventListener('DOMContentLoaded', () => {
+    document.documentElement.classList.remove('dark');
+    document.documentElement.classList.add('default');
+});
+
 </script>
 <script is:inline src="/vendor/preline/collapse2.1.0.min.js"></script>

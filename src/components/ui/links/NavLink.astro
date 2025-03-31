@@ -5,16 +5,40 @@ interface Props {
   url: string
   name: string
 }
+
+const isVirtualEnv = url === 'https://eva.losandesc.com/'
 ---
 
 <a
     id={url === '/' ? 'home' : url.replace('/', '')}
     href={url}
     data-astro-prefetch
-    class="rounded-lg text-base font-medium text-neutral-600 outline-none ring-zinc-500 hover:text-neutral-500 focus-visible:ring dark:text-neutral-400 dark:ring-zinc-200 dark:hover:text-neutral-500 dark:focus:outline-none md:py-3 md:text-sm 2xl:text-base"
+    class:list={[
+        "rounded-lg text-base font-medium outline-none ring-zinc-500 focus-visible:ring dark:ring-zinc-200 dark:focus:outline-none md:py-3 md:text-sm 2xl:text-base px-4 transition-colors duration-200",
+        isVirtualEnv 
+            ? "virtual-env-btn" 
+            : "text-neutral-600 hover:text-neutral-500 dark:text-neutral-400 dark:hover:text-neutral-500"
+    ]}
 >
   {name}
 </a>
+
+<style>
+    .virtual-env-btn {
+        background-color: rgb(43, 2, 78) !important;
+        color: white !important;
+    }
+    .virtual-env-btn:hover {
+        background-color: rgb(57, 2, 109) !important;
+    }
+    .dark .virtual-env-btn {
+        background-color: rgb(57, 2, 109) !important;
+        color: white !important;
+    }
+    .dark .virtual-env-btn:hover {
+        background-color: rgb(126, 34, 206) !important;
+    }
+</style>
 
 <script>
  document.addEventListener('DOMContentLoaded', () => {
@@ -25,15 +49,15 @@ interface Props {
          navId = url.replace('/', '')
      }
 
-     const nav = document.getElementById(navId)
-     if (nav) {
+     const nav = document.getElementById(navId) as HTMLAnchorElement
+     if (nav && !nav.href.includes('eva.losandesc.com')) {
          nav.classList.remove(
              'text-neutral-600',
              'dark:text-neutral-400',
              'hover:text-neutral-500',
              'dark:hover:text-neutral-500',
          )
-         nav.classList.add('text-orange-400', 'dark:text-orange-300')
+         nav.classList.add('text-yellow-600', 'dark:text-blue-400')
          nav.setAttribute('aria-current', 'page')
      }
  })

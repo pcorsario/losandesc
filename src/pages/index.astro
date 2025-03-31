@@ -6,24 +6,42 @@ import BlogInsight from '@components/blog/BlogInsight.astro'
 import HeroSection from '@components/ui/sections/HeroSection.astro'
 import FeaturesSection from '@components/ui/sections/FeaturesSection.astro'
 import HeroSectionAlt from '@components/ui/sections/HeroSectionAlt.astro'
+import { ImageCarousel } from '@components/ui/sections/ImageCarousel'
 import blogHeroImg from '@images/home.png'
+import FacebookButton from '@components/ui/sections/FacebookButton.astro'
 
 const posts: CollectionEntry<'posts'>[] = (await getCollection('posts')).sort(
     (a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 ).slice(0, 3);
 ---
 
-<BaseLayout>
-    <HeroSection
+<BaseLayout title="Inicio" description="Los Andes - Escuela de Conducción">
+    <section class="w-full">
+        <ImageCarousel client:load />
+        <!-- <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center z-10">
+            <h2 class="text-4xl font-bold text-white md:text-5xl md:leading-tight drop-shadow-lg">
+                Instituto Tecnológico Superior Los Andes
+            </h2>
+            <p class="mt-4 text-xl text-white drop-shadow-lg">
+                CONDUCCIÓN TOTAL
+            </p>
+        </div> -->
+    </section>
+
+    <!-- <HeroSection
         title=`LOS ANDES <br> <span class="text-blue-500 dark:text-blue-400">Escuela de Conducción</span>`
         subTitle="La Escuela de Conducción Los Andes cuenta con profesionales altamente capacitados e instalaciones modernas para la formación de conductores responsables."
         primaryBtn="Cónoce nuestros Servicios"
         primaryBtnURL="/posts"
         src={blogHeroImg}
-        alt="godruoyi's blog"
-    />
+        alt="xxx"
+    /> -->
 
-    <FeaturesSection />
+    <HeroSectionAlt
+    title="Siguenos en nuestras Redes"
+    subTitle="Estamos presentese en Facebook, Instagram, y TikTok"
+    url="https://www.facebook.com/escueladeconduccionec"
+/>
 
     <section class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full">
         <div class="mx-auto mb-10 max-w-2xl text-center lg:mb-14">
@@ -42,10 +60,10 @@ const posts: CollectionEntry<'posts'>[] = (await getCollection('posts')).sort(
             }
         </div>
     </section>
+    
+    <FeaturesSection />
 
-    <HeroSectionAlt
-        title="Siguenos en nuestras Redes"
-        subTitle="Estamos presentese en Facebook, Instagram, y TikTok"
-        url="https://www.facebook.com/escueladeconduccionec"
-    />
+    
+
+ 
 </BaseLayout>

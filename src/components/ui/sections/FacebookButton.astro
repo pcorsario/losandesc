@@ -1,15 +1,14 @@
 ---
-import FbBtn from '@components/ui/buttons/FbBtn.astro'
-import InstagramButton from '@components/ui/sections/InstagramButton.astro'
-import TikTokBtn from '@components/ui/buttons/TikTokBtn.astro'
+import GithubBtn from '@components/ui/buttons/GithubBtn.astro'
 
-const { title, subTitle, url, btnTitle } = Astro.props
+const { title, subTitle, url } = Astro.props
+
+const btnTitle = 'Facebook'
 
 interface Props {
     title: string
     subTitle?: string
     url?: string
-    btnTitle?: string
 }
 ---
 
@@ -130,14 +129,14 @@ interface Props {
       )
     }
   </div>
-  <!-- Social Media Buttons -->
+  <!-- Github Button -->
   {
     url && (
       <div class="mt-8 flex justify-center gap-3">
-        <FbBtn url={url} title={btnTitle} />
-        <InstagramButton url="https://www.instagram.com/escueladeconduccionlosandes/" title="Síguenos en Instagram" />
-        <TikTokBtn url="https://www.tiktok.com/@losandesconduccion" title="Síguenos en TikTok" />
+        <GithubBtn url={url} title={btnTitle} />
       </div>
+      
     )
   }
+  
 </section>

@@ -13,7 +13,7 @@ export const NavigationLinks: NavigationLink[] = [
     { name: 'Blog', url: '/timeline' },
     { name: 'Noticias', url: '/posts' },
     { name: 'Contáctanos', url: '/posts/contactanos' },
-    // { name: 'Nuestros Clientes', url: '/friends' },
+    { name: 'Aula Virtual', url: 'https://eva.losandesc.com/' },
 ]
 
 export const FooterLinks = [
