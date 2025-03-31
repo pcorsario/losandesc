@@ -53,22 +53,57 @@ const isVirtualEnv = url === 'https://eva.losandesc.com/'
 
 <script>
  document.addEventListener('DOMContentLoaded', () => {
-     const url = window.location.pathname.replace('//', '')
-     let navId = 'home'
-
-     if (url !== '/') {
-         navId = url.replace('/', '')
-     }
-
-     const nav = document.getElementById(navId) as HTMLAnchorElement
-     if (nav && !nav.href.includes('eva.losandesc.com')) {
-         nav.classList.remove(
-             'text-neutral-600',
-             'dark:text-neutral-400',
-             'hover:text-neutral-500',
-             'dark:hover:text-neutral-500',
-         )
-         nav.setAttribute('aria-current', 'page')
-     }
+     const currentPath = window.location.pathname
+     const navLinks = document.querySelectorAll('a[data-astro-prefetch]')
+     
+     navLinks.forEach(link => {
+         const linkPath = link.getAttribute('href')
+         if (linkPath && !linkPath.includes('eva.losandesc.com')) {
+             // Para la página de inicio
+             if (linkPath === '/' && currentPath === '/') {
+                 link.classList.remove(
+                     'text-neutral-600',
+                     'dark:text-neutral-400',
+                     'hover:text-neutral-500',
+                     'dark:hover:text-neutral-500',
+                 )
+                 link.classList.add('bg-blue-900', 'text-white', 'dark:bg-blue-800', 'dark:text-white')
+                 link.setAttribute('aria-current', 'page')
+             }
+             // Para la página de blog
+             else if (linkPath === '/timeline' && currentPath === '/timeline') {
+                 link.classList.remove(
+                     'text-neutral-600',
+                     'dark:text-neutral-400',
+                     'hover:text-neutral-500',
+                     'dark:hover:text-neutral-500',
+                 )
+                 link.classList.add('bg-blue-900', 'text-white', 'dark:bg-blue-800', 'dark:text-white')
+                 link.setAttribute('aria-current', 'page')
+             }
+             // Para la página de noticias
+             else if (linkPath === '/posts' && currentPath.startsWith('/posts') && !currentPath.includes('/contactanos')) {
+                 link.classList.remove(
+                     'text-neutral-600',
+                     'dark:text-neutral-400',
+                     'hover:text-neutral-500',
+                     'dark:hover:text-neutral-500',
+                 )
+                 link.classList.add('bg-blue-900', 'text-white', 'dark:bg-blue-800', 'dark:text-white')
+                 link.setAttribute('aria-current', 'page')
+             }
+             // Para la página de contacto
+             else if (linkPath === '/posts/contactanos' && currentPath === '/posts/contactanos') {
+                 link.classList.remove(
+                     'text-neutral-600',
+                     'dark:text-neutral-400',
+                     'hover:text-neutral-500',
+                     'dark:hover:text-neutral-500',
+                 )
+                 link.classList.add('bg-blue-900', 'text-white', 'dark:bg-blue-800', 'dark:text-white')
+                 link.setAttribute('aria-current', 'page')
+             }
+         }
+     })
  })
 </script>

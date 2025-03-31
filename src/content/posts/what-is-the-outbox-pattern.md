@@ -3,7 +3,7 @@ title: "Examen Psicosensometrico"
 description: "¡Renueva tu licencia con nosotros!
  Realizamos exámenes psicosensométricos "
 pubDate: "2024-08-04 15:43:00"
-category: "whatis"
+category: "life"
 banner: "@images/posts/licencias/examenpsicosensometrico.png"
 banner2: "@images/posts/licencias/examenpsicosensometrico.png"
 tags: ["技术"]
